@@ -12,11 +12,13 @@ namespace Restaurant_Project_ASP.NET.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            CustomerRepository objCustomerRepository = new CustomerRepository(); 
+            CustomerRepository objCustomerRepository = new CustomerRepository();
+            ItemRepository objItemRepository = new ItemRepository();
+            PaymentTypeRepository objPaymentTypeRepository = new PaymentTypeRepository();
 
             var objMultipleModels = new Tuple<IEnumerable<SelectListItem>, IEnumerable<SelectListItem>, IEnumerable<SelectListItem>>
-                (objCustomerRepository.GetAllCustomers(),);
-            return View();
+                (objCustomerRepository.GetAllCustomer(), objItemRepository.GetAllItems(), objPaymentTypeRepository.GetAllPaymentType());
+            return View(objMultipleModels);
         }
     }
 }
