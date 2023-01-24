@@ -165,3 +165,30 @@ $(document).ready(function () {
     </table>
 
 </fieldset>
+
+<fieldset>
+    <legend>
+        Restaurant Items
+    </legend>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    Item :
+                    @Html.DropDownList("Item", new SelectList(Model.Item2, dataValueField: "Value", dataTextField: "Text"),
+                   new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    Unit Price:
+                    <input type="text" name="UnitPrice" class="form-control" value="0.00" readonly="readonly" id="txtUnitPrice"/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</fieldset>
