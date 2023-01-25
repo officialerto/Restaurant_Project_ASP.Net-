@@ -7,31 +7,30 @@
 <script src="~/Scripts/jquery-3.6.3.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function () {
-
-    $("#Item").change(function () {
-        var itemId = $("#Item").val();
-        GetItemUnitPrice(itemId);
-    });
+    $(document).ready(function () {
+        $("#Item").change(function () {
+            var itemId = $("#Item").val();
+            GetItemUnitPrice(itemId);
+        });
 
     });
 
     function GetItemUnitPrice(itemId) {
-    $.ajax({
-        asysnc: true,
-        type: 'GET',
-        dataType: 'JSON',
-        contentType: 'application/json; charset=utf-8',
-        data: { itemId: itemId },
-        url: '/home/getItemUnitPrice',
-        success: function (data) {
-            $('#txtUnitPrice').val(parseFloat(data).toFixed(2));
-        },
-        error: function () {
-            alert("There is some problem to get the Unit Price.");
-        }
-    });
-}
+        $.ajax({
+            asysnc: true,
+            type: 'GET',
+            dataType: 'JSON',
+            contentType: 'application/json; charset=utf-8',
+            data: { itemId: itemId },
+            url: '/home/getItemUnitPrice',
+            success: function (data) {
+                $('#txtUnitPrice').val(parseFloat(data).toFixed(2));
+            },
+            error: function () {
+                alert("There is some problem to get the Unit Price.");
+            }
+        });
+    }
 
 </script>
 
@@ -184,11 +183,9 @@ $(document).ready(function () {
             <div class="col-md-6">
                 <div class="form-group">
                     Unit Price:
-                    <input type="text" name="UnitPrice" class="form-control" value="0.00" readonly="readonly" id="txtUnitPrice"/>
+                    <input type="text" name="UnitPrice" class="form-control" value="0.00" readonly="readonly" id="txtUnitPrice" />
                 </div>
             </div>
-
         </div>
     </div>
-
 </fieldset>
